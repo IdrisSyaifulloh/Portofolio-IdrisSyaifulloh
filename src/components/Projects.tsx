@@ -89,9 +89,9 @@ export function Projects() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
             <div>
               <h2 className="text-5xl sm:text-6xl lg:text-7xl font-light text-black dark:text-white tracking-tight leading-tight mb-4">
-                Featured
+                Project
                 <br />
-                <span className="font-normal">Projects</span>
+                <span className="font-normal">KEREN</span>
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-400 font-light max-w-2xl">
                 A selection of my recent work across various domains and technologies

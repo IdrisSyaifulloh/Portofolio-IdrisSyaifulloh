@@ -179,9 +179,9 @@ export function Hero() {
                   transition={{ duration: 1, delay: 1 }}
                 />
                 {[
-                  { Icon: Github, href: 'https://github.com', label: 'GitHub' },
-                  { Icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-                  { Icon: Mail, href: 'mailto:your.email@example.com', label: 'Email' },
+                  { Icon: Github, href: 'https://github.com/IdrisSyaifulloh', label: 'GitHub' },
+                  { Icon: Linkedin, href: 'https://www.linkedin.com/in/idris-syaifulloh-b36478263/', label: 'LinkedIn' },
+                  { Icon: Mail, href: 'mailto:saefullahiddris@gmail.com', label: 'Email' },
                 ].map(({ Icon, href, label }, index) => (
                   <motion.a
                     key={index}
@@ -255,7 +255,7 @@ export function Hero() {
                   <motion.div
                     className="absolute -bottom-6 -right-6 px-6 py-4 bg-white dark:bg-black border-2 border-black dark:border-white rounded-2xl shadow-xl"
                     initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
+                    animate={{ opacity: 1, scale: 1 }}  
                     transition={{ delay: 1, type: 'spring' }}
                     whileHover={{ scale: 1.05, rotate: 3 }}
                   >
