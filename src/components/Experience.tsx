@@ -1,7 +1,6 @@
 import { motion } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
 import { Briefcase, GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
-
 export function Experience() {
   const ref = useRef(null);
   const [isInView, setIsInView] = useState(false);
@@ -31,38 +30,36 @@ export function Experience() {
   const experiences = [
     {
       type: 'education',
-      icon: GraduationCap,
+      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjCH5oxtpVBPr6mv5jRyyOBfNxdtTQCoT-rA&s',
       title: 'Bachelor of Computer Science',
       company: 'SMK Amaliah 1&2',
       location: 'Bogor, Indonesia',
       period: '2016 - 2020',
       description: 'Graduated with honors. Specialized in Software Engineering and Artificial Intelligence. Active member of the computer science community.',
       achievements: [
-        'GPA: 3.8/4.0 - Magna Cum Laude',
-        'Dean\'s List for 6 consecutive semesters',
-        'Research on Machine Learning applications in healthcare',
-        'President of Computer Science Club (2019-2020)',
+         'HEBAT',
+        'SEHAT',
+        'KUAT',
       ],
     },
 
     {
       type: 'education',
-      icon: GraduationCap,
-      title: 'Bachelor of Computer Science',
-      company: 'State University',
-      location: 'Boston, MA',
-      period: '2016 - 2020',
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Logo_Telkom_University_potrait.png',
+      title: 'Computer Engineering',
+      company: 'Telkom University',
+      location: 'Bandung, Indonesia',
+      period: '2023 - 2026',
       description: 'Graduated with honors. Specialized in Software Engineering and Artificial Intelligence. Active member of the computer science community.',
       achievements: [
-        'GPA: 3.8/4.0 - Magna Cum Laude',
-        'Dean\'s List for 6 consecutive semesters',
-        'Research on Machine Learning applications in healthcare',
-        'President of Computer Science Club (2019-2020)',
+        'HEBAT',
+        'SEHAT',
+        'KUAT',
       ],
     },
     {
       type: 'internship',
-      icon: Briefcase,
+      icon: 'https://storage.googleapis.com/storage-ajaib-prd-platform-wp-artifact/2019/10/BNI-Syariah.jpg',
       title: 'Back Office',
       company: 'BNI Syariah',
       location: 'Bogor, Indonesia',
@@ -75,18 +72,15 @@ export function Experience() {
       ],
     },
     {
-      type: 'work',
-      icon: Briefcase,
+      type: 'internship',
+      icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScbPZBp7vBSqUHnv1CVFc3lritK0yFdfgfGg&s',
       title: 'Full Stack Developer',
-      company: 'Digital Solutions Ltd.',
-      location: 'New York, NY',
-      period: '2020 - 2022',
-      description: 'Developed and maintained multiple web applications using modern technologies. Collaborated with cross-functional teams to deliver high-quality products.',
+      company: 'CoE STAS-RG.',
+      location: 'Bandung, Indonesia',
+      period: '2025 - 2026',
+      description: 'Developed and maintained multiple web applications using modern technologies.',
       achievements: [
-        'Built 10+ production applications from scratch',
-        'Improved application performance by 40% through optimization',
-        'Introduced automated testing and improved code quality',
-        'Collaborated with UX team on major redesign initiatives',
+       'APA KEK SUKA SUKA AJA',
       ],
     },
     
@@ -170,7 +164,15 @@ export function Experience() {
                       <div className="flex items-start justify-between mb-6">
                         <div className="flex items-start space-x-4">
                           <div className="p-3 bg-gray-50 dark:bg-gray-900 rounded-xl group-hover:bg-black dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-colors">
+                             {typeof exp.icon === 'string' ? (
+                            <img
+                              src={exp.icon}
+                              alt={exp.company}
+                              className="h-6 w-6 object-contain"
+                            />
+                          ) : (
                             <exp.icon size={24} strokeWidth={1.5} />
+                          )}
                           </div>
                           <div>
                             <h3 className="text-2xl font-light text-black dark:text-white mb-2">
@@ -196,7 +198,7 @@ export function Experience() {
                             ? 'bg-black text-white dark:bg-white dark:text-black'
                             : 'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-200'
                         }`}>
-                          {exp.type === 'work' ? 'Work' : 'Education'}
+                          {exp.type === 'work' ? 'Work' : exp.type === 'education' ? 'Education' : 'Internship'}
                         </span>
                       </div>
 
