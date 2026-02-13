@@ -34,7 +34,8 @@ export function Navigation() {
     { name: 'Skills', href: '#skills', number: '03' },
     { name: 'Projects', href: '#projects', number: '04' },
     { name: 'Experience', href: '#experience', number: '05' },
-    { name: 'Contact', href: '#contact', number: '06' },
+    { name: 'Certification', href: '#certification', number: '06' },
+    { name: 'Contact', href: '#contact', number: '07' },
   ];
 
   return (

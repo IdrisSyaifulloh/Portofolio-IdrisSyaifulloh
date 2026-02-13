@@ -1,6 +1,6 @@
 import { motion, useMotionValue, useSpring } from 'motion/react';
 import { useRef, useEffect, useState } from 'react';
-import { Code, Database, Cloud, Smartphone, Star } from 'lucide-react';
+import { Code, Database, Cloud, Smartphone, Star, ComputerIcon, } from 'lucide-react';
 
 export function Skills() {
   const ref = useRef(null);
@@ -57,6 +57,36 @@ export function Skills() {
         { name: 'AWS', level: 82 },
         { name: 'CI/CD', level: 80 },
         { name: 'Kubernetes', level: 75 },
+      ],
+    },
+    {
+      title: 'Dekstop',
+      icon: ComputerIcon,
+      skills: [
+        { name: 'Pyside6', level: 85 },
+        { name: 'Python', level: 82 },
+        { name: '', level: 80 },
+        { name: '', level: 75 },
+      ],
+    },
+     {
+      title: 'Cyber Security',
+      icon: ComputerIcon,
+      skills: [
+        { name: 'Wireshark', level: 85 },
+        { name: 'Kali Linux Tools', level: 82 },
+        { name: 'Remnux', level: 80 },
+        { name: 'Vmware', level: 75 },
+      ],
+    },
+     {
+      title: 'Comper Vision & Machine Learning',
+      icon: ComputerIcon,
+      skills: [
+        { name: 'Python', level: 85 },
+        { name: 'Yolo', level: 82 },
+        { name: 'Pytorch', level: 80 },
+        { name: 'ONNX', level: 75 },
       ],
     },
   ];
@@ -142,6 +172,10 @@ export function Skills() {
             className="mt-20 grid sm:grid-cols-3 gap-8 lg:gap-12"
           >
             {[
+              { 
+                title: 'Fast Learning', 
+                content: 'Staying up-to-date with the latest technologies and best practices in the industry.',
+              },
               { 
                 title: 'Always Learning', 
                 content: 'Staying up-to-date with the latest technologies and best practices in the industry.',
