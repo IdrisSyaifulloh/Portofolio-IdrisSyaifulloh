@@ -9,6 +9,7 @@ import { Navigation } from './components/Navigation';
 import { ThemeProvider } from './components/ThemeContext';
 import { AnimatedCursor } from './components/AnimatedCursor';
 import { ScrollProgress } from './components/ScrollProgress';
+import { Certificate } from './components/certificate';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
         <Skills />
         <Projects />
         <Experience />
+        <Certificate />
         <Contact />
       </div>
     </ThemeProvider>

@@ -19,7 +19,9 @@ export function Contact() {
       { threshold: 0.3 }
     );
     if (ref.current) observer.observe(ref.current);
-    return () => ref.current && observer.unobserve(ref.current);
+    return () => {
+      if (ref.current) observer.unobserve(ref.current);
+    };
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {

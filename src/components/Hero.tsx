@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'motion/react';
 import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Hero() {
@@ -401,8 +401,4 @@ function MagneticButton({
       </span>
     </motion.a>
   );
-}
-
-function useRef<T>(initialValue: T) {
-  return { current: initialValue } as React.MutableRefObject<T>;
 }

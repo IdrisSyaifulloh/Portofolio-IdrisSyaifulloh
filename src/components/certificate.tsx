@@ -3,10 +3,10 @@ import { useRef, useEffect, useState } from 'react';
 import { ArrowUpRight, X, ExternalLink, Github, Folder } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 
-export function Projects() {
+export function Certificate() {
   const ref = useRef(null);
   const [isInView, setIsInView] = useState(false);
-  const [selectedProject, setSelectedProject] = useState<number | null>(null);
+  const [selectedCertificate, setSelectedCertificate] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
@@ -30,7 +30,7 @@ export function Projects() {
     };
   }, []);
 
-  const projects = [
+  const Certificate = [
      {
       title: 'MY BINI 1',
       category: 'Full Stack',
@@ -76,15 +76,15 @@ export function Projects() {
       category: 'Web App',
       year: '2023',
       description: 'imut nya oi',
-      fullDescription: 'Enterprise-grade project management platform with real-time collaboration, advanced reporting, Gantt charts, time tracking, and seamless third-party integrations. Built with Next.js and GraphQL.',
+      fullDescription: 'Enterprise-grade Certificate management platform with real-time collaboration, advanced reporting, Gantt charts, time tracking, and seamless third-party integrations. Built with Next.js and GraphQL.',
       image: 'https://images.t2online.in/cdn-cgi/image/width=640,quality=70/https://apis.t2online.in/getImageStream/1058/1756644711962.jpg',
       tags: ['Next.js', 'GraphQL', 'AWS', 'WebSocket'],
-      metrics: { companies: '200+', projects: '5K+', satisfaction: '95%' },
+      metrics: { companies: '200+', Certificate: '5K+', satisfaction: '95%' },
     },
   ];
 
   return (
-    <section id="projects" className="py-32 lg:py-40 bg-white dark:bg-black relative overflow-hidden" ref={ref}>
+    <section id="certification" className="py-32 lg:py-40 bg-white dark:bg-black relative overflow-hidden" ref={ref}>
       {/* Decorative Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(0,0,0,0.01),transparent)] dark:bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.01),transparent)]" />
 
@@ -109,7 +109,7 @@ export function Projects() {
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
             <div>
               <h2 className="text-5xl sm:text-6xl lg:text-7xl font-light text-black dark:text-white tracking-tight leading-tight mb-4">
-                Project
+                Certificate
                 <br />
                 <span className="font-normal">KEREN</span>
               </h2>
@@ -124,36 +124,36 @@ export function Projects() {
               whileHover={{ x: 5 }}
             >
               <span className="text-sm font-medium border-b border-black dark:border-white pb-0.5">
-                View All Projects
+                View All Certificate
               </span>
               <ArrowUpRight size={16} strokeWidth={2} />
             </motion.a>
           </div>
         </motion.div>
 
-        {/* Projects Grid */}
+        {/* Certificate Grid */}
         <div className="max-w-7xl mx-auto space-y-6">
-          {projects.map((project, index) => (
-            <ProjectCard
-              key={project.title}
-              project={project}
+          {Certificate.map((Certificate, index) => (
+            <CertificateCard
+              key={Certificate.title}
+              Certificate={Certificate}
               index={index}
               isInView={isInView}
               isHovered={hoveredIndex === index}
               onHover={() => setHoveredIndex(index)}
               onLeave={() => setHoveredIndex(null)}
-              onClick={() => setSelectedProject(index)}
+              onClick={() => setSelectedCertificate(index)}
             />
           ))}
         </div>
       </div>
 
-      {/* Project Modal */}
+      {/* Certificate Modal */}
       <AnimatePresence>
-        {selectedProject !== null && (
-          <ProjectModal
-            project={projects[selectedProject]}
-            onClose={() => setSelectedProject(null)}
+        {selectedCertificate !== null && (
+          <CertificateModal
+            Certificate={Certificate[selectedCertificate]}
+            onClose={() => setSelectedCertificate(null)}
           />
         )}
       </AnimatePresence>
@@ -161,8 +161,8 @@ export function Projects() {
   );
 }
 
-// Enhanced Project Card
-function ProjectCard({ project, index, isInView, isHovered, onHover, onLeave, onClick }: any) {
+// Enhanced Certificate Card
+function CertificateCard({ Certificate, index, isInView, isHovered, onHover, onLeave, onClick }: any) {
   const cardRef = useRef<HTMLDivElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -222,10 +222,10 @@ function ProjectCard({ project, index, isInView, isHovered, onHover, onLeave, on
                   0{index + 1}
                 </motion.span>
                 <span className="px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-xs font-medium rounded-full">
-                  {project.category}
+                  {Certificate.category}
                 </span>
                 <span className="text-sm text-gray-500 dark:text-gray-400">
-                  {project.year}
+                  {Certificate.year}
                 </span>
               </div>
 
@@ -235,17 +235,17 @@ function ProjectCard({ project, index, isInView, isHovered, onHover, onLeave, on
                 animate={{ x: isHovered ? 10 : 0 }}
                 transition={{ type: 'spring', stiffness: 300 }}
               >
-                {project.title}
+                {Certificate.title}
               </motion.h3>
 
               {/* Description */}
               <p className="text-lg text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-6">
-                {project.description}
+                {Certificate.description}
               </p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 mb-8">
-                {project.tags.map((tag: string, i: number) => (
+                {Certificate.tags.map((tag: string, i: number) => (
                   <motion.span
                     key={tag}
                     initial={{ opacity: 0, scale: 0.8 }}
@@ -261,7 +261,7 @@ function ProjectCard({ project, index, isInView, isHovered, onHover, onLeave, on
 
             {/* Metrics */}
             <div className="grid grid-cols-3 gap-4">
-              {Object.entries(project.metrics).map(([key, value]: any, i) => (
+              {Object.entries(Certificate.metrics).map(([key, value]: any, i) => (
                 <motion.div
                   key={key}
                   initial={{ opacity: 0, y: 10 }}
@@ -286,8 +286,8 @@ function ProjectCard({ project, index, isInView, isHovered, onHover, onLeave, on
               whileHover={{ scale: 1.02 }}
             >
               <ImageWithFallback
-                src={project.image}
-                alt={project.title}
+                src={Certificate.image}
+                alt={Certificate.title}
                 className="w-full h-full object-cover"
               />
               {/* Overlay */}
@@ -296,14 +296,14 @@ function ProjectCard({ project, index, isInView, isHovered, onHover, onLeave, on
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isHovered ? 1 : 0 }}
               />
-              {/* View Project Button */}
+              {/* View Certificate Button */}
               <motion.div
                 className="absolute inset-0 flex items-center justify-center"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.8 }}
               >
                 <div className="px-6 py-3 bg-white dark:bg-black text-black dark:text-white rounded-full font-medium flex items-center space-x-2">
-                  <span>View Project</span>
+                  <span>View Certificate</span>
                   <ArrowUpRight size={16} />
                 </div>
               </motion.div>
@@ -321,8 +321,8 @@ function ProjectCard({ project, index, isInView, isHovered, onHover, onLeave, on
   );
 }
 
-// Project Modal
-function ProjectModal({ project, onClose }: any) {
+// Certificate Modal
+function CertificateModal({ Certificate, onClose }: any) {
   return (
     <motion.div
       className="fixed inset-0 bg-white/95 dark:bg-black/95 backdrop-blur-xl z-50 overflow-auto"
@@ -357,8 +357,8 @@ function ProjectModal({ project, onClose }: any) {
             className="aspect-video rounded-3xl overflow-hidden mb-12"
           >
             <ImageWithFallback
-              src={project.image}
-              alt={project.title}
+              src={Certificate.image}
+              alt={Certificate.title}
               className="w-full h-full object-cover"
             />
           </motion.div>
@@ -367,20 +367,20 @@ function ProjectModal({ project, onClose }: any) {
             {/* Main Content */}
             <div className="lg:col-span-2">
               <span className="inline-block px-3 py-1 bg-black dark:bg-white text-white dark:text-black text-sm font-medium rounded-full mb-6">
-                {project.category} · {project.year}
+                {Certificate.category} · {Certificate.year}
               </span>
               
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-light text-black dark:text-white mb-6">
-                {project.title}
+                {Certificate.title}
               </h2>
               
               <p className="text-xl text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-8">
-                {project.fullDescription}
+                {Certificate.fullDescription}
               </p>
 
               {/* Metrics */}
               <div className="grid grid-cols-3 gap-6 p-6 bg-gray-50 dark:bg-gray-900 rounded-2xl mb-8">
-                {Object.entries(project.metrics).map(([key, value]: any) => (
+                {Object.entries(Certificate.metrics).map(([key, value]: any) => (
                   <div key={key}>
                     <div className="text-3xl font-light text-black dark:text-white mb-1">
                       {value}
@@ -398,7 +398,7 @@ function ProjectModal({ project, onClose }: any) {
                   Technologies Used
                 </h3>
                 <div className="flex flex-wrap gap-3">
-                  {project.tags.map((tag: string) => (
+                  {Certificate.tags.map((tag: string) => (
                     <span
                       key={tag}
                       className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black text-sm font-medium rounded-full"
@@ -436,10 +436,10 @@ function ProjectModal({ project, onClose }: any) {
             <div className="space-y-8">
               <div>
                 <h3 className="text-sm tracking-wider text-gray-500 dark:text-gray-400 uppercase mb-4">
-                  Project Type
+                  Certificate Type
                 </h3>
                 <p className="text-lg text-black dark:text-white font-light">
-                  {project.category}
+                  {Certificate.category}
                 </p>
               </div>
               <div>
@@ -447,7 +447,7 @@ function ProjectModal({ project, onClose }: any) {
                   Year
                 </h3>
                 <p className="text-lg text-black dark:text-white font-light">
-                  {project.year}
+                  {Certificate.year}
                 </p>
               </div>
               <div>

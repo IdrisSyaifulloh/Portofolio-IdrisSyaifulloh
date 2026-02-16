@@ -12,7 +12,7 @@ export function Navigation() {
       setIsScrolled(window.scrollY > 50);
       
       // Detect active section
-      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'contact'];
+      const sections = ['home', 'about', 'skills', 'projects', 'experience', 'certification', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
         if (element) {

@@ -164,15 +164,13 @@ export function Experience() {
                       <div className="flex items-start justify-between mb-6">
                         <div className="flex items-start space-x-4">
                           <div className="p-3 bg-gray-50 dark:bg-gray-900 rounded-xl group-hover:bg-black dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-colors">
-                             {typeof exp.icon === 'string' ? (
-                            <img
-                              src={exp.icon}
-                              alt={exp.company}
-                              className="h-6 w-6 object-contain"
-                            />
-                          ) : (
-                            <exp.icon size={24} strokeWidth={1.5} />
-                          )}
+                            {typeof exp.icon === 'string' ? (
+                              <img
+                                src={exp.icon}
+                                alt={exp.company}
+                                className="h-6 w-6 object-contain"
+                              />
+                            ) : null}
                           </div>
                           <div>
                             <h3 className="text-2xl font-light text-black dark:text-white mb-2">
