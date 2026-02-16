@@ -35,16 +35,15 @@ export function About() {
   }, []);
 
   const stats = [
-    { value: '5+', label: 'Years Experience', icon: Sparkles },
-    { value: '50+', label: 'Projects Completed', icon: Code2 },
-    { value: '30+', label: 'Happy Clients', icon: Zap },
+    { value: '1', label: 'Years Experience', icon: Sparkles },
+    { value: '10+', label: 'Projects Completed', icon: Code2 },
   ];
 
   const highlights = [
     'Full-Stack Development',
-    'UI/UX Design',
-    'Cloud Architecture',
-    'Performance Optimization',
+    'Devops & Cloud',
+    'Cyber Security',
+    'Decktop Application',
   ];
 
   return (
