@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'moti
 import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
+import heroImage from '../assets/spongebob-squarepants--patrick-vector.jpg';
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -238,7 +239,7 @@ export function Hero() {
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <ImageWithFallback
-                      src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJqzxQ4STVlCfLrAJD-eVIH5AunKFr4ZezIA&s"
+                      src={heroImage}
                       alt="Profile Photo"
                       className="w-full h-full object-cover"
                     />
@@ -269,8 +270,8 @@ export function Hero() {
                         ))}
                       </div>
                       <div className="text-left">
-                        <div className="text-sm font-medium text-black dark:text-white">30+ Clients</div>
-                        <div className="text-xs text-gray-500 dark:text-gray-400">Worldwide</div>
+                        <div className="text-sm font-medium text-black dark:text-white">Hebat</div>
+                        <div className="text-xs text-gray-500 dark:text-gray-400">Kuat</div>
                       </div>
                     </div>
                   </motion.div>
@@ -283,8 +284,8 @@ export function Hero() {
                     transition={{ delay: 1.2 }}
                     whileHover={{ scale: 1.05, rotate: -3 }}
                   >
-                    <div className="text-2xl font-light text-white dark:text-black">5+</div>
-                    <div className="text-xs text-gray-300 dark:text-gray-700">Years Exp</div>
+                    <div className="text-2xl font-light text-white dark:text-black">Fresh Graduate</div>
+                    <div className="text-xs text-gray-300 dark:text-gray-700"></div>
                   </motion.div>
                 </motion.div>
 
