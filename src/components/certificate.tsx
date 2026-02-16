@@ -119,7 +119,7 @@ export function Certificate() {
             </div>
             
             <motion.a
-              href="#"
+              href="AllCertificate"
               className="inline-flex items-center space-x-2 text-black dark:text-white group"
               whileHover={{ x: 5 }}
             >

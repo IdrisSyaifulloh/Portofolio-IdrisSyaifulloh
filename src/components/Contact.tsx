@@ -74,12 +74,8 @@ export function Contact() {
       url: 'https://www.linkedin.com/in/idris-syaifulloh-b36478263/',
     },
     {
-      name: 'Twitter',
-      url: 'https://twitter.com/username',
-    },
-    {
-      name: 'Dribbble',
-      url: 'https://dribbble.com/username',
+      name: 'Instagram',
+      url: 'https://www.instagram.com/idrissyfllh',
     },
   ];
 
