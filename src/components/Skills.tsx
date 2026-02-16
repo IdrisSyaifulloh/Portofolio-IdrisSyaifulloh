@@ -33,60 +33,60 @@ export function Skills() {
       title: 'Frontend',
       icon: Code,
       skills: [
-        { name: 'React & Next.js', level: 95 },
-        { name: 'TypeScript', level: 90 },
-        { name: 'Tailwind CSS', level: 92 },
-        { name: 'Vue.js', level: 80 },
+        { name: 'React & Next.js' },
+        { name: 'TypeScript' },
+        { name: 'Tailwind CSS' },
+        { name: 'Vue.js' },
       ],
     },
     {
       title: 'Backend',
       icon: Database,
       skills: [
-        { name: 'Node.js', level: 90 },
-        { name: 'Python', level: 85 },
-        { name: 'PostgreSQL', level: 88 },
-        { name: 'GraphQL', level: 80 },
+        { name: 'Node.js' },
+        { name: 'Python'},
+        { name: 'PostgreSQL' },
+        { name: 'GraphQL'},
       ],
     },
     {
       title: 'DevOps',
       icon: Cloud,
       skills: [
-        { name: 'Docker', level: 85 },
-        { name: 'AWS', level: 82 },
-        { name: 'CI/CD', level: 80 },
-        { name: 'Kubernetes', level: 75 },
+        { name: 'Docker' },
+        { name: 'AWS' },
+        { name: 'CI/CD' },
+        { name: 'Kubernetes'},
       ],
     },
     {
       title: 'Dekstop',
       icon: ComputerIcon,
       skills: [
-        { name: 'Pyside6', level: 85 },
-        { name: 'Python', level: 82 },
-        { name: '', level: 80 },
-        { name: '', level: 75 },
+        { name: 'Pyside6' },
+        { name: 'Python' },
+        { name: 'Qt' },
+        { name: 'C++' },
       ],
     },
      {
       title: 'Cyber Security',
       icon: ComputerIcon,
       skills: [
-        { name: 'Wireshark', level: 85 },
-        { name: 'Kali Linux Tools', level: 82 },
-        { name: 'Remnux', level: 80 },
-        { name: 'Vmware', level: 75 },
+        { name: 'Wireshark'},
+        { name: 'Kali Linux Tools' },
+        { name: 'Remnux' },
+        { name: 'Vmware' },
       ],
     },
      {
       title: 'Comper Vision & Machine Learning',
       icon: ComputerIcon,
       skills: [
-        { name: 'Python', level: 85 },
-        { name: 'Yolo', level: 82 },
-        { name: 'Pytorch', level: 80 },
-        { name: 'ONNX', level: 75 },
+        { name: 'Python' },
+        { name: 'Yolo' },
+        { name: 'Pytorch' },
+        { name: 'ONNX' },
       ],
     },
   ];
@@ -230,20 +230,8 @@ function SkillBar({ skill, isInView, delay, isHovered, onHover, onLeave }: any) 
         >
           {skill.name}
         </motion.span>
-        <motion.span 
-          className="text-sm font-light text-gray-500 dark:text-gray-400"
-          animate={{ scale: isHovered ? 1.1 : 1 }}
-        >
-          {skill.level}%
-        </motion.span>
       </div>
       <div className="relative h-1.5 bg-gray-100 dark:bg-gray-900 rounded-full overflow-hidden">
-        <motion.div
-          className="absolute top-0 left-0 h-full bg-gradient-to-r from-black to-gray-700 dark:from-white dark:to-gray-300 rounded-full"
-          initial={{ width: 0 }}
-          animate={isInView ? { width: `${skill.level}%` } : { width: 0 }}
-          transition={{ duration: 1, delay, ease: 'easeOut' }}
-        />
         {/* Shimmer Effect */}
         <motion.div
           className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white dark:via-gray-400 to-transparent opacity-50"
