@@ -60,6 +60,8 @@ export function Projects() {
       image: 'https://www.pantau.com/_next/image?url=https%3A%2F%2Fpantau.sgp1.cdn.digitaloceanspaces.com%2Fimages%2F20240804-3954-446123229_1788594541633306_394263367615011274.jpg&w=2048&q=75',
       tags: ['PHP Native','MySQL','Bootstrap','CSS','JS'],
       metrics: { users: 'Fotocopy', member: '2' },
+      github: 'https://github.com/IdrisSyaifulloh/ManajemenFotocopyan-TugasBesar-Semester2',
+      demo: 'https://project-demo.com'
     },
     {
       title: 'MY BINI 2',
@@ -409,27 +411,36 @@ function ProjectModal({ project, onClose }: any) {
                 </div>
               </div>
 
-              {/* Actions */}
-              <div className="flex flex-wrap gap-4">
-                <motion.a
-                  href="#"
-                  className="inline-flex items-center space-x-2 px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <ExternalLink size={18} />
-                  <span>Live Demo</span>
-                </motion.a>
-                <motion.a
-                  href="#"
-                  className="inline-flex items-center space-x-2 px-6 py-3 border border-black dark:border-white text-black dark:text-white rounded-full font-medium"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Github size={18} />
-                  <span>Source Code</span>
-                </motion.a>
-              </div>
+{/* Actions */}
+<div className="flex gap-4">
+  {project.demo && (
+    <motion.a
+      href={project.demo}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center space-x-2 px-6 py-3 bg-black dark:bg-white text-white dark:text-black rounded-full font-medium"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <ExternalLink size={18} />
+      <span>Live Demo</span>
+    </motion.a>
+  )}
+
+  {project.github && (
+    <motion.a
+      href={project.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-flex items-center space-x-2 px-6 py-3 border border-black dark:border-white text-black dark:text-white rounded-full font-medium"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Github size={18} />
+      <span>Source Code</span>
+    </motion.a>
+  )}
+</div>
             </div>
 
             {/* Sidebar */}
