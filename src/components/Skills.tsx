@@ -231,15 +231,6 @@ function SkillBar({ skill, isInView, delay, isHovered, onHover, onLeave }: any) 
           {skill.name}
         </motion.span>
       </div>
-      <div className="relative h-1.5 bg-gray-100 dark:bg-gray-900 rounded-full overflow-hidden">
-        {/* Shimmer Effect */}
-        <motion.div
-          className="absolute top-0 h-full w-20 bg-gradient-to-r from-transparent via-white dark:via-gray-400 to-transparent opacity-50"
-          initial={{ x: '-100%' }}
-          animate={isHovered ? { x: '500%' } : {}}
-          transition={{ duration: 0.8, ease: 'easeInOut' }}
-        />
-      </div>
     </motion.div>
   );
 }
