@@ -108,7 +108,7 @@ export function Skills() {
             >
               <Star size={14} className="text-black dark:text-white" />
               <span className="text-xs tracking-wider text-gray-600 dark:text-gray-400 uppercase font-medium">
-                Expertise
+                Nice Skill
               </span>
             </motion.div>
 
