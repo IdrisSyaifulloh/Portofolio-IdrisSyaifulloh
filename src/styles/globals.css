@@ -3,7 +3,7 @@
 :root {
   --font-size: 20px;
   --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
+  --foreground: #165e3d;
   --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
@@ -182,4 +182,24 @@
 
 html {
   font-size: var(--font-size);
+}
+
+/* Override all text colors to dark green in light mode only */
+:not(.dark) .text-black,
+:not(.dark) .text-gray-600,
+:not(.dark) .text-gray-700,
+:not(.dark) .text-gray-800,
+:not(.dark) .text-gray-900 {
+  color: #165e3d !important;
+}
+
+/* Override specific heading and text utilities */
+:not(.dark) h1,
+:not(.dark) h2,
+:not(.dark) h3,
+:not(.dark) h4,
+:not(.dark) h5,
+:not(.dark) h6,
+:not(.dark) p {
+  color: #165e3d;
 }
