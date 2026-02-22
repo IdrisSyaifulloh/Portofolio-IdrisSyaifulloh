@@ -44,7 +44,7 @@ export function Certificate() {
       metrics: { users: '1JTK+', uptime: '99.9%', performance: 'SSSSSSSSS+' },
     },
      {
-      title: 'MY BINI 1',
+      title: 'IoT Cisco',
       category: 'Full Stack',
       year: '2024',
       description: 'lorem Ipsum.',
