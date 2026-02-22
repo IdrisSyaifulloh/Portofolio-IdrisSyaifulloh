@@ -3,6 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { ArrowUpRight, X, ExternalLink, Github, Folder } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import Photo from '../assets/image.png';
+import IOT from '../assets/Iot.png';
 
 export function Certificate() {
   const ref = useRef(null);
@@ -48,7 +49,7 @@ export function Certificate() {
       year: '2024',
       description: 'lorem Ipsum.',
       fullDescription: 'Complete e-commerce platform featuring real-time inventory management, secure payment processing with Stripe, advanced analytics dashboard, and seamless user experience. Built with React, Node.js, and PostgreSQL.',
-      image: 'https://www.pantau.com/_next/image?url=https%3A%2F%2Fpantau.sgp1.cdn.digitaloceanspaces.com%2Fimages%2F20240804-3954-446123229_1788594541633306_394263367615011274.jpg&w=2048&q=75',
+      image: IOT,
       tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
       metrics: { users: '1JTK+', uptime: '99.9%', performance: 'SSSSSSSSS+' },
     },
