@@ -3,6 +3,7 @@ import { Github, Linkedin, Mail, ArrowRight, Download } from 'lucide-react';
 import { useEffect, useState, useRef } from 'react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
 import heroImage from '../assets/spongebob-squarepants--patrick-vector.jpg';
+import Gua from '../assets/Gua.jpeg';
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -239,7 +240,7 @@ export function Hero() {
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <ImageWithFallback
-                      src={heroImage}
+                      src={Gua}
                       alt="Profile Photo"
                       className="w-full h-full object-cover"
                     />
