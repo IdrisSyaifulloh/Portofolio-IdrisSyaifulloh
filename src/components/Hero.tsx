@@ -11,7 +11,7 @@ export function Hero() {
   const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
   
   const [text, setText] = useState('');
-  const fullText = 'Software Engineer';
+  const fullText = 'Tukang Ngoding';
   
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
