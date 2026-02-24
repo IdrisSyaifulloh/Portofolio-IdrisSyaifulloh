@@ -10,6 +10,11 @@ export function Projects() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
