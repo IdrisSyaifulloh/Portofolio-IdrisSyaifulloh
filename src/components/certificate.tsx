@@ -12,6 +12,11 @@ export function Certificate() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -124,6 +129,7 @@ export function Certificate() {
               href="AllCertificate"
               className="inline-flex items-center space-x-2 text-black dark:text-white group"
               whileHover={{ x: 5 }}
+            
             >
               <span className="text-sm font-medium border-b border-black dark:border-white pb-0.5">
                 View All Certificate
