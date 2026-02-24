@@ -54,11 +54,11 @@ export function Navigation() {
           <div className="flex items-center justify-between h-20">
             <motion.a
               href="#home"
-              className="text-xl font-light tracking-wider text-black dark:text-white"
+              className="text-xl font-light tracking-wider text-[#1a4d2e] dark:text-white"
               whileHover={{ letterSpacing: '0.3em' }}
               transition={{ duration: 0.3 }}
             >
-              IDRIS SYAIFULLOH
+              IDRIS SYIAFULLOH
             </motion.a>
 
             {/* Desktop Navigation - Minimal */}
@@ -67,12 +67,12 @@ export function Navigation() {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="group relative text-sm font-light tracking-wide text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                  className="group relative text-sm font-light tracking-wide text-gray-600 dark:text-gray-400 hover:text-[#1a4d2e] dark:hover:text-white transition-colors"
                 >
                   <span className="text-xs opacity-40 mr-2">{link.number}</span>
                   {link.name}
                   <motion.span
-                    className="absolute -bottom-1 left-0 h-px bg-black dark:bg-white"
+                    className="absolute -bottom-1 left-0 h-px bg-[#1a4d2e] dark:bg-white"
                     initial={{ width: 0 }}
                     animate={{ width: activeSection === link.href.slice(1) ? '100%' : 0 }}
                     transition={{ duration: 0.3 }}
@@ -81,10 +81,10 @@ export function Navigation() {
               ))}
             </div>
 
-            {/* Theme Toggle - Minimal */}
+            {/* Theme Toggle - Desktop and Mobile */}
             <motion.button
               onClick={toggleTheme}
-              className="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-colors"
+              className="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-[#1a4d2e] dark:hover:text-white hover:border-[#1a4d2e] dark:hover:border-white transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -112,7 +112,7 @@ export function Navigation() {
             >
               <div className={`w-2 h-2 rounded-full border transition-all ${
                 activeSection === link.href.slice(1)
-                  ? 'bg-black dark:bg-white border-black dark:border-white'
+                  ? 'bg-[#1a4d2e] dark:bg-white border-[#1a4d2e] dark:border-white'
                   : 'bg-transparent border-gray-400 dark:border-gray-600'
               }`} />
               <span className="absolute right-6 top-1/2 -translate-y-1/2 text-xs font-light tracking-wide opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-gray-600 dark:text-gray-400">
@@ -122,15 +122,6 @@ export function Navigation() {
           ))}
         </div>
       </div>
-
-      {/* Mobile Menu Button */}
-      <motion.button
-        className="lg:hidden fixed top-6 right-6 z-50 w-10 h-10 flex flex-col items-center justify-center space-y-1.5"
-        whileTap={{ scale: 0.95 }}
-      >
-        <span className="w-6 h-px bg-black dark:bg-white" />
-        <span className="w-6 h-px bg-black dark:bg-white" />
-      </motion.button>
     </>
   );
 }
