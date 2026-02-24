@@ -7,6 +7,11 @@ export function Experience() {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   useEffect(() => {
+    if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+      setIsInView(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
