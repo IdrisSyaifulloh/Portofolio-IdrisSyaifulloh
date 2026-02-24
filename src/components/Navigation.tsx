@@ -5,7 +5,6 @@ import { useTheme } from './ThemeContext';
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
   useEffect(() => {
@@ -39,13 +38,6 @@ export function Navigation() {
     { name: 'Contact', href: '#contact', number: '07' },
   ];
 
-  useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : '';
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMobileMenuOpen]);
-
   return (
     <>
       {/* Top Bar */}
@@ -59,10 +51,10 @@ export function Navigation() {
         }`}
       >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-20">
             <motion.a
               href="#home"
-              className="text-sm sm:text-xl font-light tracking-wide sm:tracking-wider text-black dark:text-white truncate max-w-[65vw] sm:max-w-none"
+              className="text-xl font-light tracking-wider text-black dark:text-white"
               whileHover={{ letterSpacing: '0.3em' }}
               transition={{ duration: 0.3 }}
             >
@@ -89,39 +81,21 @@ export function Navigation() {
               ))}
             </div>
 
-            <div className="flex items-center gap-3">
-              <motion.button
-                onClick={toggleTheme}
-                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-colors"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                aria-label="Toggle theme"
+            {/* Theme Toggle - Minimal */}
+            <motion.button
+              onClick={toggleTheme}
+              className="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <motion.div
+                initial={false}
+                animate={{ rotate: isDark ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
               >
-                <motion.div
-                  initial={false}
-                  animate={{ rotate: isDark ? 180 : 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {isDark ? '☀' : '☾'}
-                </motion.div>
-              </motion.button>
-
-              <motion.button
-                onClick={() => setIsMobileMenuOpen((prev) => !prev)}
-                className="lg:hidden w-9 h-9 sm:w-10 sm:h-10 flex flex-col items-center justify-center space-y-1.5 border border-gray-300 dark:border-gray-700 rounded-full"
-                whileTap={{ scale: 0.95 }}
-                aria-label="Toggle mobile menu"
-              >
-                <motion.span
-                  className="w-5 h-px bg-black dark:bg-white"
-                  animate={{ rotate: isMobileMenuOpen ? 45 : 0, y: isMobileMenuOpen ? 3 : 0 }}
-                />
-                <motion.span
-                  className="w-5 h-px bg-black dark:bg-white"
-                  animate={{ rotate: isMobileMenuOpen ? -45 : 0, y: isMobileMenuOpen ? -3 : 0 }}
-                />
-              </motion.button>
-            </div>
+                {isDark ? '☀' : '☾'}
+              </motion.div>
+            </motion.button>
           </div>
         </div>
       </motion.nav>
@@ -149,45 +123,14 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            <motion.button
-              className="lg:hidden fixed inset-0 z-40 bg-black/30"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsMobileMenuOpen(false)}
-              aria-label="Close mobile menu overlay"
-            />
-            <motion.div
-              className="lg:hidden fixed top-16 sm:top-20 left-0 right-0 z-50 bg-white/95 dark:bg-black/95 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800"
-              initial={{ opacity: 0, y: -12 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -12 }}
-            >
-              <div className="px-4 py-4 flex flex-col gap-2">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`px-3 py-3 rounded-lg text-sm transition-colors ${
-                      activeSection === link.href.slice(1)
-                        ? 'bg-black text-white dark:bg-white dark:text-black'
-                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-900'
-                    }`}
-                  >
-                    <span className="opacity-60 mr-2">{link.number}</span>
-                    {link.name}
-                  </a>
-                ))}
-              </div>
-            </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu Button */}
+      <motion.button
+        className="lg:hidden fixed top-6 right-6 z-50 w-10 h-10 flex flex-col items-center justify-center space-y-1.5"
+        whileTap={{ scale: 0.95 }}
+      >
+        <span className="w-6 h-px bg-black dark:bg-white" />
+        <span className="w-6 h-px bg-black dark:bg-white" />
+      </motion.button>
     </>
   );
 }

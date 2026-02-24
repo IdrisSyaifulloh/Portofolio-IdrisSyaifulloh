@@ -7,7 +7,7 @@ import IOT from '../assets/Iot.png';
 import Eacker from '../assets/Hacker.png';
 export function Certificate() {
   const ref = useRef(null);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(true);
   const [selectedCertificate, setSelectedCertificate] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 

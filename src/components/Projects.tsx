@@ -5,7 +5,7 @@ import { ImageWithFallback } from './figma/ImageWithFallback';
 
 export function Projects() {
   const ref = useRef(null);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(true);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 

@@ -3,7 +3,7 @@ import { useRef, useEffect, useState } from 'react';
 import { Briefcase, GraduationCap, Award, Calendar, MapPin } from 'lucide-react';
 export function Experience() {
   const ref = useRef(null);
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(true);
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   useEffect(() => {
