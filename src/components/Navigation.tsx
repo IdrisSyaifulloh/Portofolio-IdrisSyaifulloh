@@ -58,7 +58,7 @@ export function Navigation() {
               whileHover={{ letterSpacing: '0.3em' }}
               transition={{ duration: 0.3 }}
             >
-              IDRIS SYIAFULLOH
+              IDRIS Syaifulloh
             </motion.a>
 
             {/* Desktop Navigation - Minimal */}
