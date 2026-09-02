@@ -26,7 +26,7 @@ export function Hero() {
               <div className="absolute -right-1.5 -top-1.5 w-3 h-3" style={{ backgroundColor: '#00D084' }} />
               <div className="absolute -left-1.5 -bottom-1.5 w-3 h-3" style={{ backgroundColor: '#00D084' }} />
               <div className="absolute -right-1.5 -bottom-1.5 w-3 h-3" style={{ backgroundColor: '#00D084' }} />
-              Hi everyone 👋, I'am Idris Syaifulloh
+              Hi everyone , I'am Idris Syaifulloh
             </motion.div>
 
             {/* Main Heading */}
