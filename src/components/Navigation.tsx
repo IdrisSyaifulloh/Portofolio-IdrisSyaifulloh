@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion } from 'motion/react';
 import { useTheme } from './ThemeContext';
 
 export function Navigation() {
@@ -11,7 +11,6 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
       
-      // Detect active section
       const sections = ['home', 'about', 'skills', 'projects', 'experience', 'certification', 'contact'];
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -29,99 +28,74 @@ export function Navigation() {
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home', number: '01' },
-    { name: 'About', href: '#about', number: '02' },
-    { name: 'Skills', href: '#skills', number: '03' },
-    { name: 'Projects', href: '#projects', number: '04' },
-    { name: 'Experience', href: '#experience', number: '05' },
-    { name: 'Certification', href: '#certification', number: '06' },
-    { name: 'Contact', href: '#contact', number: '07' },
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Experience', href: '#experience' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <>
-      {/* Top Bar */}
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-gray-200 dark:border-gray-800'
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
-            <motion.a
-              href="#home"
-              className="text-xl font-light tracking-wider text-[#1a4d2e] dark:text-white"
-              whileHover={{ letterSpacing: '0.3em' }}
-              transition={{ duration: 0.3 }}
-            >
-              IDRIS Syaifulloh  
-            </motion.a>
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-sm'
+          : 'bg-transparent'
+      }`}
+    >
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between h-20 sm:h-24">
+          {/* Logo */}
+          <motion.a
+            href="#home"
+            className="flex items-center space-x-2"
+            whileHover={{ scale: 1.02 }}
+            transition={{ duration: 0.2 }}
+          >
+            <div className="w-8 h-8 rounded-full bg-[#00D084] flex items-center justify-center text-white font-bold text-lg">
+              S
+            </div>
+            <span className="text-xl font-semibold text-black dark:text-white tracking-tight">
+              Idris
+            </span>
+          </motion.a>
 
-            {/* Desktop Navigation - Minimal */}
-            <div className="hidden lg:flex items-center space-x-12">
-              {navLinks.map((link) => (
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center space-x-8">
+            {navLinks.map((link) => {
+              const isActive = activeSection === link.href.slice(1);
+              return (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="group relative text-sm font-light tracking-wide text-gray-600 dark:text-gray-400 hover:text-[#1a4d2e] dark:hover:text-white transition-colors"
+                  className="flex items-center space-x-1.5 group relative text-sm font-medium text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors"
                 >
-                  <span className="text-xs opacity-40 mr-2">{link.number}</span>
-                  {link.name}
-                  <motion.span
-                    className="absolute -bottom-1 left-0 h-px bg-[#1a4d2e] dark:bg-white"
-                    initial={{ width: 0 }}
-                    animate={{ width: activeSection === link.href.slice(1) ? '100%' : 0 }}
-                    transition={{ duration: 0.3 }}
-                  />
+                  {isActive && (
+                    <motion.div
+                      layoutId="activeDot"
+                      className="w-1.5 h-1.5 rounded-full bg-[#00D084]"
+                    />
+                  )}
+                  <span className={isActive ? 'text-black dark:text-white font-semibold' : ''}>
+                    {link.name}
+                  </span>
                 </a>
-              ))}
-            </div>
-
-            {/* Theme Toggle - Desktop and Mobile */}
-            <motion.button
+              );
+            })}
+            
+            {/* Theme Toggle */}
+            <button
               onClick={toggleTheme}
-              className="w-10 h-10 rounded-full border border-gray-300 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-[#1a4d2e] dark:hover:text-white hover:border-[#1a4d2e] dark:hover:border-white transition-colors"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              className="ml-4 w-8 h-8 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
             >
-              <motion.div
-                initial={false}
-                animate={{ rotate: isDark ? 180 : 0 }}
-                transition={{ duration: 0.3 }}
-              >
-                {isDark ? '☀' : '☾'}
-              </motion.div>
-            </motion.button>
+              {isDark ? '☀' : '☾'}
+            </button>
           </div>
         </div>
-      </motion.nav>
-
-      {/* Side Navigation Dots */}
-      <div className="hidden lg:block fixed right-8 top-1/2 -translate-y-1/2 z-50">
-        <div className="flex flex-col space-y-6">
-          {navLinks.map((link) => (
-            <motion.a
-              key={link.name}
-              href={link.href}
-              className="group relative"
-              whileHover={{ scale: 1.2 }}
-            >
-              <div className={`w-2 h-2 rounded-full border transition-all ${
-                activeSection === link.href.slice(1)
-                  ? 'bg-[#1a4d2e] dark:bg-white border-[#1a4d2e] dark:border-white'
-                  : 'bg-transparent border-gray-400 dark:border-gray-600'
-              }`} />
-              <span className="absolute right-6 top-1/2 -translate-y-1/2 text-xs font-light tracking-wide opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap text-gray-600 dark:text-gray-400">
-                {link.name}
-              </span>
-            </motion.a>
-          ))}
-        </div>
       </div>
-    </>
+    </motion.nav>
   );
 }

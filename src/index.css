@@ -2707,38 +2707,17 @@ html {
   }
 }
 
-/* Override black utilities to dark green in light mode only */
-html:not(.dark) .text-black,
-html:not(.dark) .text-gray-600,
-html:not(.dark) .text-gray-700,
-html:not(.dark) .text-gray-800,
-html:not(.dark) .text-gray-900,
-html:not(.dark) .hover\:text-black:hover,
-html:not(.dark) .group-hover\:text-black:is(:where(.group):hover *) {
-  color: #165e3d !important;
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
-html:not(.dark) .bg-black,
-html:not(.dark) .hover\:bg-black:hover,
-html:not(.dark) .group-hover\:bg-black:is(:where(.group):hover *) {
-  background-color: #165e3d !important;
-}
-
-html:not(.dark) .border-black,
-html:not(.dark) .hover\:border-black:hover,
-html:not(.dark) .focus\:border-black:focus,
-html:not(.dark) .group-hover\:border-black:is(:where(.group):hover *) {
-  border-color: #165e3d !important;
-}
-
-html:not(.dark) .from-black {
-  --tw-gradient-from: #165e3d !important;
-}
-
-html:not(.dark) .via-black {
-  --tw-gradient-via: #165e3d !important;
-}
-
-html:not(.dark) .to-black {
-  --tw-gradient-to: #165e3d !important;
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+  display: flex;
+  width: max-content;
 }
