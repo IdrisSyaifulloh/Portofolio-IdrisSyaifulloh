@@ -45,13 +45,13 @@ export function Projects() {
   const currentProject = projects[currentIndex];
 
   return (
-    <section id="projects" className="py-24 relative overflow-hidden transition-colors duration-300" style={{ backgroundColor: '#fffaeb' }}>
+    <section id="projects" className="py-24 relative overflow-hidden transition-colors duration-300" style={{ backgroundColor: '#ffffff' }}>
       {/* Dark mode override for background */}
       <style dangerouslySetInnerHTML={{__html: `
         .dark #projects { background-color: #111827 !important; }
-        .custom-yellow-btn { background-color: #fce762; }
-        .dark .custom-yellow-btn { background-color: #00D084; }
-        .custom-dashed-line { border-bottom: 3px dashed #fce762; }
+        .custom-accent-bg { background-color: #065f46; }
+        .dark .custom-accent-bg { background-color: #00D084; }
+        .custom-dashed-line { border-bottom: 3px dashed #065f46; }
         .dark .custom-dashed-line { border-bottom: 3px dashed #00D084; }
       `}} />
 
@@ -86,7 +86,7 @@ export function Projects() {
                 </p>
                 <button
                   onClick={() => setSelectedProject(currentIndex)}
-                  className="custom-yellow-btn text-black font-semibold px-6 py-3 border-2 border-black rounded-md flex items-center gap-2 hover:opacity-90 transition-opacity"
+                  className="custom-accent-bg text-white dark:text-black font-semibold px-6 py-3 border-2 border-black rounded-md flex items-center gap-2 hover:opacity-90 transition-opacity"
                   style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}
                 >
                   More Detail <ArrowRight className="w-5 h-5" />
@@ -113,7 +113,6 @@ export function Projects() {
           </AnimatePresence>
         </div>
 
-        {/* Pagination Dots */}
         <div className="flex justify-center items-center gap-3 mt-20">
           {projects.map((_, idx) => (
             <button
@@ -122,7 +121,7 @@ export function Projects() {
               className="h-3 rounded-full border-2 border-black transition-all duration-300"
               style={{
                 width: currentIndex === idx ? '32px' : '32px',
-                backgroundColor: currentIndex === idx ? '#fce762' : 'transparent',
+                backgroundColor: currentIndex === idx ? '#065f46' : 'transparent',
               }}
               aria-label={`Go to slide ${idx + 1}`}
             />
@@ -187,7 +186,7 @@ function ProjectModal({ project, onClose }: any) {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <span className="inline-block px-4 py-1 bg-[#fce762] dark:bg-[#00D084] text-black text-sm font-bold border-2 border-black rounded-full mb-6">
+              <span className="inline-block px-4 py-1 bg-[#065f46] dark:bg-[#00D084] text-white dark:text-black text-sm font-bold border-2 border-black rounded-full mb-6">
                 {project.category} · {project.year}
               </span>
               
