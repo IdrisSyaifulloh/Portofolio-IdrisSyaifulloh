@@ -86,8 +86,8 @@ export function Projects() {
                 </p>
                 <button
                   onClick={() => setSelectedProject(currentIndex)}
-                  className="custom-accent-bg text-white dark:text-black font-semibold px-6 py-3 border-2 border-black rounded-md flex items-center gap-2 hover:opacity-90 transition-opacity"
-                  style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}
+                  className="font-semibold px-6 py-3 border-2 border-black rounded-md flex items-center gap-2 hover:opacity-90 transition-opacity"
+                  style={{ backgroundColor: '#065f46', color: '#ffffff', boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}
                 >
                   More Detail <ArrowRight className="w-5 h-5" />
                 </button>
@@ -186,7 +186,10 @@ function ProjectModal({ project, onClose }: any) {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Main Content */}
             <div className="lg:col-span-2">
-              <span className="inline-block px-4 py-1 bg-[#065f46] dark:bg-[#00D084] text-white dark:text-black text-sm font-bold border-2 border-black rounded-full mb-6">
+              <span 
+                className="inline-block px-4 py-1 text-sm font-bold border-2 border-black rounded-full mb-6"
+                style={{ backgroundColor: '#065f46', color: '#ffffff' }}
+              >
                 {project.category} · {project.year}
               </span>
               
@@ -238,8 +241,8 @@ function ProjectModal({ project, onClose }: any) {
                     href={project.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-bold rounded-md hover:opacity-90 transition-opacity"
-                    style={{ boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.5)' }}
+                    className="inline-flex items-center space-x-2 px-6 py-3 font-bold rounded-md border-2 border-black hover:opacity-90 transition-opacity"
+                    style={{ backgroundColor: '#065f46', color: '#ffffff', boxShadow: '4px 4px 0px 0px rgba(0,0,0,1)' }}
                   >
                     <ExternalLink size={18} />
                     <span>Live Demo</span>
