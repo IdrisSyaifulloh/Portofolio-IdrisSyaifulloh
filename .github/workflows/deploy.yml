@@ -1,0 +1,40 @@
+name: Build and Deploy to cPanel
+
+on:
+  push:
+    branches:
+      - main # Pastikan nama branch utamamu 'main' atau ganti ke 'master' jika perlu
+
+jobs:
+  build-and-deploy:
+    name: Build and Deploy React App
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Kamu bisa ubah ke '18' sesuai versi Node di komputermu
+
+      - name: 📦 Install Dependencies
+        run: npm install
+
+      - name: 🛠️ Build React + Tailwind
+        run: npm run build
+
+      - name: 📂 Sync files to cPanel
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          
+          # Jika kamu pakai Vite, foldernya biasanya 'dist/'. 
+          # Tapi jika pakai Create React App (CRA), ubah menjadi './build/'
+          local-dir: ./build/ 
+          
+          # Ini akan menaruh file hasil build langsung ke dalam public_html (atau root FTP-mu)
+          server-dir: /
