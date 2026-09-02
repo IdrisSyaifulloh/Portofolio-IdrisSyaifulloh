@@ -7,9 +7,10 @@ export function Hero() {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen pt-28 pb-32 flex items-center bg-white dark:bg-gray-950 overflow-hidden"
+      className="relative bg-white dark:bg-gray-950 overflow-hidden"
+      style={{ paddingTop: '160px', paddingBottom: '160px', minHeight: '100vh' }}
     >
-      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10 w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left Content */}
           <div className="pt-12 lg:pt-0">
@@ -60,8 +61,8 @@ export function Hero() {
             >
               <a
                 href="#contact"
-                className="bg-black dark:bg-white text-white dark:text-black px-8 py-4 flex items-center gap-2 font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors relative"
-                style={{ backgroundColor: 'black', color: 'white' }}
+                className="bg-black dark:bg-white text-white dark:text-black px-8 py-4 flex items-center gap-2 font-semibold hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
+                style={{ backgroundColor: 'black', color: 'white', position: 'relative' }}
               >
                 Get In Touch <ArrowUpRight className="w-5 h-5" style={{ color: '#00D084' }} />
                 <div className="absolute top-1 left-1 w-full h-full -z-10" style={{ backgroundColor: '#00D084' }} />
