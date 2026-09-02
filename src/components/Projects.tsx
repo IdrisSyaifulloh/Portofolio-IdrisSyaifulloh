@@ -1,4 +1,4 @@
-﻿import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import { X, ExternalLink, Github } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
@@ -68,36 +68,38 @@ export function Projects() {
     <section id="projects" className="py-24 relative overflow-hidden min-h-screen flex flex-col justify-center transition-colors duration-300" style={{ backgroundColor: '#f5f5f5' }}>
       
       {/* Top Header Labels */}
-      <div className="absolute top-8 sm:top-12 left-6 right-6 sm:left-12 sm:right-12 flex justify-between text-xs sm:text-sm font-bold tracking-widest text-black dark:text-gray-300 uppercase z-20">
+      <div className="absolute top-8 left-8 right-8 sm:left-12 sm:right-12 flex justify-between items-center text-xs sm:text-sm font-bold tracking-widest text-black dark:text-gray-300 uppercase z-20">
         <span>Idris Syaifulloh</span>
         <span>Software Engineer Portfolio</span>
       </div>
 
-      {/* Massive Background Text */}
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none z-0 overflow-hidden">
-        <div className="flex items-center text-[15vw] md:text-[18vw] font-black text-black dark:text-white leading-none uppercase tracking-tighter mix-blend-overlay opacity-90 dark:opacity-20" style={{ fontFamily: 'Impact, sans-serif' }}>
+      {/* Main Content Container (Normal Flow) */}
+      <div className="w-full flex flex-col items-center justify-center pt-24 pb-12 z-10 relative">
+        
+        {/* Massive Text (Normal Flow, No Absolute) - z-index 20 so it covers the top of the keychains */}
+        <div 
+          className="flex items-center justify-center font-black text-black dark:text-white leading-none uppercase tracking-tighter w-full relative z-20" 
+          style={{ fontFamily: 'Impact, sans-serif', fontSize: '13vw', marginBottom: '0' }}
+        >
           <span style={{ transform: 'rotate(-5deg) translateY(5px)', display: 'inline-block' }}>P</span>
-          <span style={{ transform: 'rotate(8deg)', display: 'inline-block' }}>O</span>
-          <span style={{ transform: 'rotate(-10deg) translateY(-10px)', display: 'inline-block' }}>R</span>
-          <span style={{ transform: 'rotate(5deg) scaleX(-1)', display: 'inline-block' }}>T</span>
-          <span style={{ transform: 'rotate(-15deg)', display: 'inline-block' }}>F</span>
-          <span style={{ transform: 'rotate(10deg) translateY(10px)', display: 'inline-block' }}>O</span>
-          <span style={{ transform: 'rotate(-5deg)', display: 'inline-block' }}>L</span>
-          <span style={{ transform: 'rotate(12deg)', display: 'inline-block' }}>I</span>
-          <span style={{ transform: 'rotate(-8deg)', display: 'inline-block' }}>O</span>
+          <span style={{ transform: 'rotate(8deg)', display: 'inline-block' }}>R</span>
+          <span style={{ transform: 'rotate(-10deg) translateY(-10px)', display: 'inline-block' }}>O</span>
+          <span style={{ transform: 'rotate(5deg)', display: 'inline-block' }}>J</span>
+          <span style={{ transform: 'rotate(-15deg)', display: 'inline-block' }}>E</span>
+          <span style={{ transform: 'rotate(10deg) translateY(10px)', display: 'inline-block' }}>C</span>
+          <span style={{ transform: 'rotate(-5deg)', display: 'inline-block' }}>T</span>
+          <span style={{ transform: 'rotate(12deg)', display: 'inline-block' }}>S</span>
         </div>
-      </div>
 
-      {/* Scattered Cards Container */}
-      <div className="container mx-auto px-2 relative z-10 mt-12 md:mt-20 overflow-visible">
-        <div className="flex justify-center items-center">
+        {/* Scattered Cards Container */}
+        <div className="w-full max-w-[100vw] overflow-visible flex justify-center items-start relative z-10" style={{ marginTop: '50px' }}>
           {projects.map((project, idx) => (
             <motion.div
               key={idx}
               whileHover={{ 
                 scale: 1.15, 
                 rotate: 0, 
-                y: -20, 
+                y: -30, 
                 zIndex: 50,
                 boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)'
               }}
@@ -111,20 +113,38 @@ export function Projects() {
                 delay: idx * 0.1 
               }}
               viewport={{ once: true, margin: "-100px" }}
-              className="relative cursor-pointer -mx-4 sm:-mx-6 md:-mx-8 lg:-mx-10 xl:-mx-12 group"
+              className="relative cursor-pointer group flex-shrink-0"
               style={{ 
                 rotate: `${rotations[idx % rotations.length]}deg`, 
                 transform: `translateY(${translationsY[idx % translationsY.length]}px)`,
-                zIndex: 10 + idx
+                zIndex: 10 + idx,
+                marginLeft: idx === 0 ? '0' : 'clamp(-5px, -1vw, -10px)'
               }}
               onClick={() => setSelectedProject(idx)}
             >
+              {/* Keychain Ring and String (Using Inline Styles to guarantee rendering) */}
+              <div 
+                className="pointer-events-none transition-transform duration-300 group-hover:-translate-y-2 group-hover:scale-110"
+                style={{ position: 'absolute', bottom: '100%', left: '50%', transform: 'translateX(-50%)', display: 'flex', flexDirection: 'column', alignItems: 'center', zIndex: -1 }}
+              >
+                {/* Ring */}
+                <div style={{ width: '18px', height: '18px', border: '4px solid #6b7280', borderRadius: '50%' }} />
+                {/* String */}
+                <div style={{ width: '5px', height: '90px', backgroundColor: '#6b7280', marginTop: '-3px' }} />
+                {/* Connector/Base */}
+                <div style={{ width: '14px', height: '14px', backgroundColor: '#4b5563', borderRadius: '50%', marginTop: '-5px', border: '2px solid white' }} />
+              </div>
+
               {/* Card Style */}
-              <div className="w-24 sm:w-32 md:w-40 lg:w-48 xl:w-56 aspect-[3/4] bg-white p-1 sm:p-2 shadow-2xl overflow-hidden border border-gray-200">
+              <div 
+                className="bg-white p-2 shadow-2xl overflow-hidden border border-gray-200 relative z-10"
+                style={{ width: 'clamp(120px, 15vw, 240px)', aspectRatio: '3/4' }}
+              >
                 <ImageWithFallback 
                   src={project.image} 
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
                 />
                 
                 {/* Hover Overlay Text */}
