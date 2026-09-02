@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import { Linkedin, Github, Mail, ArrowUpRight, Download, Instagram } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import Gua from '../assets/Gua.jpeg';
+import Gua from '../assets/fotoguwah-removebg-preview.png';
 
 export function Hero() {
   return (
