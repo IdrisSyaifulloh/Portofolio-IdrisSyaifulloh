@@ -7,12 +7,12 @@ export function Hero() {
   return (
     <section 
       id="home" 
-      className="relative min-h-screen pt-24 pb-32 flex items-center bg-white dark:bg-gray-950 overflow-hidden"
+      className="relative min-h-screen pt-28 pb-32 flex items-center bg-white dark:bg-gray-950 overflow-hidden"
     >
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
           {/* Left Content */}
-          <div className="order-2 lg:order-1 pt-12 lg:pt-0">
+          <div className="pt-12 lg:pt-0">
             {/* Greeting Box */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -33,7 +33,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-5xl sm:text-6xl lg:text-7xl font-bold text-black dark:text-white mb-6 tracking-tight"
+              className="text-4xl sm:text-6xl lg:text-7xl font-bold text-black dark:text-white mb-6 tracking-tight"
               style={{ lineHeight: 1.1 }}
             >
               Software Engineer<br />
@@ -98,7 +98,7 @@ export function Hero() {
           </div>
 
           {/* Right Content - Photo */}
-          <div className="order-1 lg:order-2 relative mt-8 lg:mt-0">
+          <div className="relative mt-8 lg:mt-0">
             {/* Green Abstract Shapes Behind */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full scale-125 -z-20 pointer-events-none hidden md:block">
               <svg viewBox="0 0 500 500" className="w-full h-full" preserveAspectRatio="none">

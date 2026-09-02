@@ -86,14 +86,44 @@ export function Navigation() {
                 </a>
               );
             })}
-            
+          </div>
+
+          {/* Right Controls */}
+          <div className="flex items-center space-x-4">
             {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
-              className="ml-4 w-8 h-8 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+              className="w-8 h-8 rounded-full flex items-center justify-center text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
             >
               {isDark ? '☀' : '☾'}
             </button>
+            
+            {/* Mobile Menu Button */}
+            <button 
+              className="lg:hidden p-2 text-gray-600 dark:text-gray-400"
+              onClick={() => {
+                const menu = document.getElementById('mobile-menu');
+                if (menu) menu.classList.toggle('hidden');
+              }}
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <div id="mobile-menu" className="hidden lg:hidden py-4 border-t border-gray-200 dark:border-gray-800">
+          <div className="flex flex-col space-y-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-gray-800 dark:text-gray-200 font-medium"
+                onClick={() => document.getElementById('mobile-menu')?.classList.add('hidden')}
+              >
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>
