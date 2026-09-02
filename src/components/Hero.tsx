@@ -121,15 +121,12 @@ export function Hero() {
               className="relative mx-auto w-full"
               style={{ maxWidth: '400px' }}
             >
-              {/* Black background offset */}
-              <div className="absolute top-4 left-4 xl:top-6 xl:left-6 w-full h-full -z-10" style={{ backgroundColor: 'black' }} />
-              
               {/* Image */}
-              <div className="relative bg-gray-200 border-2 overflow-hidden" style={{ borderColor: 'black', aspectRatio: '4/5' }}>
+              <div className="relative overflow-hidden rounded-2xl shadow-2xl" style={{ aspectRatio: '4/5' }}>
                 <ImageWithFallback
                   src={Gua}
                   alt="Idris Syaifulloh"
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
+                  className="w-full h-full object-cover transition-all duration-500"
                 />
               </div>
 
@@ -173,6 +170,12 @@ export function Hero() {
               <span>Backend Engineering</span>
               <span style={{ color: '#00D084' }}>✦</span>
               <span>API Design</span>
+              <span style={{ color: '#00D084' }}>✦</span>
+              <span>Networking</span>
+              <span style={{ color: '#00D084' }}>✦</span>
+              <span>IoT Engineering</span>
+              <span style={{ color: '#00D084' }}>✦</span>
+              <span>Cyber Security</span>
               <span style={{ color: '#00D084' }}>✦</span>
             </div>
           ))}

@@ -36,10 +36,10 @@ export function Experience() {
     {
       type: 'education',
       icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjCH5oxtpVBPr6mv5jRyyOBfNxdtTQCoT-rA&s',
-      title: 'Bachelor of Computer Science',
+      title: 'Software Engineering',
       company: 'SMK Amaliah 1&2',
       location: 'Bogor, Indonesia',
-      period: '2016 - 2020',
+      period: '2020 - 2023',
       description: 'Graduated with honors. Specialized in Software Engineering and Artificial Intelligence. Active member of the computer science community.',
       achievements: [
          'HEBAT',
@@ -69,7 +69,7 @@ export function Experience() {
       company: 'BNI Syariah',
       location: 'Bogor, Indonesia',
       period: '2022',
-      description: 'Leading development of cloud-based applications and mentoring junior developers. Implementing best practices for CI/CD pipelines and microservices architecture.',
+      description: 'Practice As IT Support.',
       achievements: [
         'Monitoring Website Absensi',
         'Shorting Data',
@@ -77,15 +77,33 @@ export function Experience() {
       ],
     },
     {
+      type: 'work',
+      icon: 'https://upload.wikimedia.org/wikipedia/commons/0/03/Logo_Telkom_University_potrait.png',
+      title: 'Practicum Assistant',
+      company: 'Fakultas Ilmu Terapan',
+      location: 'Bandung, Indonesia',
+      period: '2024 - 2025',
+      description: 'Guided and mentored students during practical laboratory sessions for various technical courses.',
+      achievements: [
+        'Basic Electrical',
+        'Sistem Digital',
+        'Microelectronika',
+        'Pemrograman Web',
+        'Keamanan Jaringan',
+        'Layanan Jaringan'
+      ],
+    },
+    {
       type: 'internship',
       icon: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScbPZBp7vBSqUHnv1CVFc3lritK0yFdfgfGg&s',
-      title: 'Full Stack Developer',
+      title: 'DevSecOps & Software Engineer',
       company: 'CoE STAS-RG.',
       location: 'Bandung, Indonesia',
       period: '2025 - 2026',
-      description: 'Developed and maintained multiple web applications using modern technologies.',
+      description: 'Handled infrastructure security and developed software solutions.',
       achievements: [
-       'APA KEK SUKA SUKA AJA',
+        'Implemented DevSecOps practices',
+        'Software Engineering development'
       ],
     },
     

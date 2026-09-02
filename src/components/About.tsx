@@ -84,10 +84,10 @@ export function About() {
 
               <div className="space-y-6 text-lg text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-12">
                 <p>
-                  I'm a software engineer
+                  I am an active undergraduate student majoring in <strong>Computer Engineering (S1 Teknik Komputer)</strong>. I have a deep passion for technology and am a highly enthusiastic IT learner who is always eager to explore the latest industry trends.
                 </p>
                 <p>
-                  I Am Junior in IT
+                  As an aspiring software engineer, I love taking on new challenges, participating in hands-on projects, and building innovative solutions that make a positive impact. My journey in IT is fueled by curiosity and a continuous drive to grow.
                 </p>
               </div>
 
