@@ -56,10 +56,10 @@ export function Navigation() {
             transition={{ duration: 0.2 }}
           >
             <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: '#00D084' }}>
-              S
+              IS
             </div>
             <span className="text-xl font-semibold text-black dark:text-white tracking-tight">
-              Idris
+              Idris Syaifulloh
             </span>
           </motion.a>
 

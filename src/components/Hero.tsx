@@ -37,7 +37,6 @@ export function Hero() {
               style={{ lineHeight: 1.1 }}
             >
               Software Engineer<br />
-              Based in Indonesia
             </motion.h1>
 
             {/* Description */}
