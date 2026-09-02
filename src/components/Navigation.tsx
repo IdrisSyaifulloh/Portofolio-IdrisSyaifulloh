@@ -55,7 +55,7 @@ export function Navigation() {
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <div className="w-8 h-8 rounded-full bg-[#00D084] flex items-center justify-center text-white font-bold text-lg">
+            <div className="w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-lg" style={{ backgroundColor: '#00D084' }}>
               S
             </div>
             <span className="text-xl font-semibold text-black dark:text-white tracking-tight">
@@ -76,7 +76,8 @@ export function Navigation() {
                   {isActive && (
                     <motion.div
                       layoutId="activeDot"
-                      className="w-1.5 h-1.5 rounded-full bg-[#00D084]"
+                      className="w-1.5 h-1.5 rounded-full"
+                      style={{ backgroundColor: '#00D084' }}
                     />
                   )}
                   <span className={isActive ? 'text-black dark:text-white font-semibold' : ''}>
