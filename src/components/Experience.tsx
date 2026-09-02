@@ -101,7 +101,7 @@ export function Experience() {
           className="max-w-6xl mx-auto"
         >
           {/* Header */}
-          <div className="mb-20">
+          <div className="mb-20 text-center lg:text-left">
             <motion.div
               className="inline-flex items-center space-x-2 px-4 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-full mb-8"
               whileHover={{ scale: 1.05 }}
@@ -112,136 +112,199 @@ export function Experience() {
               </span>
             </motion.div>
 
-            <h2 className="text-5xl sm:text-6xl lg:text-7xl font-light text-black dark:text-white tracking-tight leading-tight mb-6">
-              Experience &
-              <br />
-              <span className="font-normal">Education</span>
+            <h2 className="text-5xl sm:text-6xl font-light text-black dark:text-white tracking-tight leading-tight mb-6">
+              Experience & <span className="font-bold">Education</span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 font-light max-w-2xl">
+            <p className="text-lg text-gray-600 dark:text-gray-400 font-light max-w-2xl mx-auto lg:mx-0">
               My professional journey and educational background
             </p>
           </div>
 
-          {/* Timeline */}
-          <div className="relative">
-            {/* Vertical Line */}
-            <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-gray-300 via-gray-200 to-transparent dark:from-gray-700 dark:via-gray-800 dark:to-transparent" />
+          {/* Split Sections */}
+          <div className="grid lg:grid-cols-2 gap-16 lg:gap-12 xl:gap-16">
+            {/* Experience Column */}
+            <div>
+              <div className="flex items-center gap-3 mb-12 pl-0 md:pl-8">
+                <Briefcase size={28} className="text-gray-400" />
+                <h3 className="text-3xl font-light text-black dark:text-white">Experience</h3>
+              </div>
+              <div className="relative">
+                <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-gray-300 via-gray-200 to-transparent dark:from-gray-700 dark:via-gray-800 dark:to-transparent" />
+                <div className="space-y-12">
+                  {experiences.filter(e => e.type !== 'education').map((exp, index) => (
+                    <motion.div
+                      key={`exp-${index}`}
+                      initial={{ opacity: 0, x: -50 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                      transition={{ duration: 0.6, delay: index * 0.2 }}
+                      onMouseEnter={() => setActiveIndex(index)}
+                      className="relative pl-12 md:pl-24"
+                    >
+                      <motion.div
+                        className="absolute left-0 md:left-8 top-8 -translate-x-1/2"
+                        animate={{ scale: activeIndex === index ? 1.5 : 1 }}
+                        transition={{ type: 'spring', stiffness: 300 }}
+                      >
+                        <div className="relative">
+                          <div className="w-4 h-4 bg-black dark:bg-white rounded-full" />
+                          {activeIndex === index && (
+                            <motion.div
+                              className="absolute inset-0 bg-black dark:bg-white rounded-full"
+                              initial={{ scale: 1, opacity: 0.5 }}
+                              animate={{ scale: 2, opacity: 0 }}
+                              transition={{ duration: 1, repeat: Infinity }}
+                            />
+                          )}
+                        </div>
+                      </motion.div>
 
-            {/* Experiences */}
-            <div className="space-y-12">
-              {experiences.map((exp, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: -50 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                  transition={{ duration: 0.6, delay: index * 0.2 }}
-                  onMouseEnter={() => setActiveIndex(index)}
-                  className="relative pl-12 md:pl-24"
-                >
-                  {/* Timeline Dot */}
-                  <motion.div
-                    className="absolute left-0 md:left-8 top-8 -translate-x-1/2"
-                    animate={{
-                      scale: activeIndex === index ? 1.5 : 1,
-                    }}
-                    transition={{ type: 'spring', stiffness: 300 }}
-                  >
-                    <div className="relative">
-                      <div className="w-4 h-4 bg-black dark:bg-white rounded-full" />
-                      {activeIndex === index && (
-                        <motion.div
-                          className="absolute inset-0 bg-black dark:bg-white rounded-full"
-                          initial={{ scale: 1, opacity: 0.5 }}
-                          animate={{ scale: 2, opacity: 0 }}
-                          transition={{ duration: 1, repeat: Infinity }}
-                        />
-                      )}
-                    </div>
-                  </motion.div>
-
-                  {/* Card */}
-                  <motion.div
-                    className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden transition-all duration-300"
-                    whileHover={{ y: -5, borderColor: activeIndex === index ? '#000' : undefined }}
-                  >
-                    <div className="p-8 lg:p-10">
-                      {/* Header */}
-                      <div className="flex items-start justify-between mb-6">
-                        <div className="flex items-start space-x-4">
-                          <div className="p-3 bg-gray-50 dark:bg-gray-900 rounded-xl group-hover:bg-black dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-colors">
-                            {typeof exp.icon === 'string' ? (
-                              <img
-                                src={exp.icon}
-                                alt={exp.company}
-                                className="h-6 w-6 object-contain"
-                              />
-                            ) : null}
-                          </div>
-                          <div>
-                            <h3 className="text-2xl font-light text-black dark:text-white mb-2">
-                              {exp.title}
-                            </h3>
-                            <p className="text-lg text-gray-900 dark:text-gray-100 font-medium mb-2">
-                              {exp.company}
-                            </p>
-                            <div className="flex flex-wrap gap-4 text-sm text-gray-500 dark:text-gray-400">
-                              <span className="flex items-center space-x-1.5">
-                                <Calendar size={14} />
-                                <span>{exp.period}</span>
-                              </span>
-                              <span className="flex items-center space-x-1.5">
-                                <MapPin size={14} />
-                                <span>{exp.location}</span>
-                              </span>
+                      <motion.div
+                        className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden transition-all duration-300"
+                        whileHover={{ y: -5, borderColor: activeIndex === index ? '#000' : undefined }}
+                      >
+                        <div className="p-8">
+                          <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-6">
+                            <div className="flex items-start space-x-4">
+                              <div className="p-3 bg-gray-50 dark:bg-gray-900 rounded-xl group-hover:bg-black dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-colors shrink-0">
+                                {typeof exp.icon === 'string' ? (
+                                  <img src={exp.icon} alt={exp.company} className="h-6 w-6 object-contain" />
+                                ) : null}
+                              </div>
+                              <div>
+                                <h3 className="text-xl font-bold text-black dark:text-white mb-1">
+                                  {exp.title}
+                                </h3>
+                                <p className="text-base text-gray-900 dark:text-gray-100 font-medium mb-2">
+                                  {exp.company}
+                                </p>
+                                <div className="flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-400">
+                                  <span className="flex items-center space-x-1">
+                                    <Calendar size={12} />
+                                    <span>{exp.period}</span>
+                                  </span>
+                                  <span className="flex items-center space-x-1">
+                                    <MapPin size={12} />
+                                    <span>{exp.location}</span>
+                                  </span>
+                                </div>
+                              </div>
                             </div>
                           </div>
+                          <p className="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-6">
+                            {exp.description}
+                          </p>
+                          <div>
+                            <ul className="space-y-2">
+                              {exp.achievements.map((achievement, i) => (
+                                <motion.li key={i} className="flex items-start space-x-2">
+                                  <span className="mt-1.5 w-1 h-1 bg-black dark:bg-white rounded-full flex-shrink-0" />
+                                  <span className="text-sm text-gray-700 dark:text-gray-300 font-light">
+                                    {achievement}
+                                  </span>
+                                </motion.li>
+                              ))}
+                            </ul>
+                          </div>
                         </div>
-                        <span className={`px-3 py-1 text-xs font-medium rounded-full ${
-                          exp.type === 'work'
-                            ? 'bg-black text-white dark:bg-white dark:text-black'
-                            : 'bg-gray-200 text-gray-800 dark:bg-gray-800 dark:text-gray-200'
-                        }`}>
-                          {exp.type === 'work' ? 'Work' : exp.type === 'education' ? 'Education' : 'Internship'}
-                        </span>
-                      </div>
+                      </motion.div>
+                    </motion.div>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-                      {/* Description */}
-                      <p className="text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-6">
-                        {exp.description}
-                      </p>
+            {/* Education Column */}
+            <div>
+              <div className="flex items-center gap-3 mb-12 pl-0 md:pl-8">
+                <GraduationCap size={28} className="text-gray-400" />
+                <h3 className="text-3xl font-light text-black dark:text-white">Education</h3>
+              </div>
+              <div className="relative">
+                <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-gradient-to-b from-gray-300 via-gray-200 to-transparent dark:from-gray-700 dark:via-gray-800 dark:to-transparent" />
+                <div className="space-y-12">
+                  {experiences.filter(e => e.type === 'education').map((exp, index) => {
+                    const globalIndex = 100 + index;
+                    return (
+                      <motion.div
+                        key={`edu-${index}`}
+                        initial={{ opacity: 0, x: -50 }}
+                        animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                        transition={{ duration: 0.6, delay: index * 0.2 }}
+                        onMouseEnter={() => setActiveIndex(globalIndex)}
+                        className="relative pl-12 md:pl-24"
+                      >
+                        <motion.div
+                          className="absolute left-0 md:left-8 top-8 -translate-x-1/2"
+                          animate={{ scale: activeIndex === globalIndex ? 1.5 : 1 }}
+                          transition={{ type: 'spring', stiffness: 300 }}
+                        >
+                          <div className="relative">
+                            <div className="w-4 h-4 bg-black dark:bg-white rounded-full" />
+                            {activeIndex === globalIndex && (
+                              <motion.div
+                                className="absolute inset-0 bg-black dark:bg-white rounded-full"
+                                initial={{ scale: 1, opacity: 0.5 }}
+                                animate={{ scale: 2, opacity: 0 }}
+                                transition={{ duration: 1, repeat: Infinity }}
+                              />
+                            )}
+                          </div>
+                        </motion.div>
 
-                      {/* Achievements */}
-                      <div>
-                        <h4 className="text-sm tracking-wider text-gray-500 dark:text-gray-400 uppercase mb-4">
-                          Key Highlights
-                        </h4>
-                        <ul className="space-y-3">
-                          {exp.achievements.map((achievement, i) => (
-                            <motion.li
-                              key={i}
-                              initial={{ opacity: 0, x: -10 }}
-                              animate={activeIndex === index ? { opacity: 1, x: 0 } : { opacity: 0.7, x: 0 }}
-                              transition={{ delay: i * 0.1 }}
-                              className="flex items-start space-x-3"
-                            >
-                              <span className="mt-1.5 w-1.5 h-1.5 bg-black dark:bg-white rounded-full flex-shrink-0" />
-                              <span className="text-sm text-gray-700 dark:text-gray-300 font-light">
-                                {achievement}
-                              </span>
-                            </motion.li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* Hover Border Effect */}
-                    <motion.div
-                      className="absolute inset-0 border-2 border-black dark:border-white opacity-0 group-hover:opacity-100 rounded-2xl pointer-events-none"
-                      transition={{ duration: 0.3 }}
-                    />
-                  </motion.div>
-                </motion.div>
-              ))}
+                        <motion.div
+                          className="group relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-2xl overflow-hidden transition-all duration-300"
+                          whileHover={{ y: -5, borderColor: activeIndex === globalIndex ? '#000' : undefined }}
+                        >
+                          <div className="p-8">
+                            <div className="flex flex-col sm:flex-row items-start justify-between gap-4 mb-6">
+                              <div className="flex items-start space-x-4">
+                                <div className="p-3 bg-gray-50 dark:bg-gray-900 rounded-xl group-hover:bg-black dark:group-hover:bg-white group-hover:text-white dark:group-hover:text-black transition-colors shrink-0">
+                                  {typeof exp.icon === 'string' ? (
+                                    <img src={exp.icon} alt={exp.company} className="h-6 w-6 object-contain" />
+                                  ) : null}
+                                </div>
+                                <div>
+                                  <h3 className="text-xl font-bold text-black dark:text-white mb-1">
+                                    {exp.title}
+                                  </h3>
+                                  <p className="text-base text-gray-900 dark:text-gray-100 font-medium mb-2">
+                                    {exp.company}
+                                  </p>
+                                  <div className="flex flex-wrap gap-3 text-xs text-gray-500 dark:text-gray-400">
+                                    <span className="flex items-center space-x-1">
+                                      <Calendar size={12} />
+                                      <span>{exp.period}</span>
+                                    </span>
+                                    <span className="flex items-center space-x-1">
+                                      <MapPin size={12} />
+                                      <span>{exp.location}</span>
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <p className="text-sm text-gray-600 dark:text-gray-400 font-light leading-relaxed mb-6">
+                              {exp.description}
+                            </p>
+                            <div>
+                              <ul className="space-y-2">
+                                {exp.achievements.map((achievement, i) => (
+                                  <motion.li key={i} className="flex items-start space-x-2">
+                                    <span className="mt-1.5 w-1 h-1 bg-black dark:bg-white rounded-full flex-shrink-0" />
+                                    <span className="text-sm text-gray-700 dark:text-gray-300 font-light">
+                                      {achievement}
+                                    </span>
+                                  </motion.li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </motion.div>
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
             </div>
           </div>
         </motion.div>

@@ -15,7 +15,9 @@ export function Skills() {
     { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
     { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
     { name: 'PostgreSQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postgresql/postgresql-original.svg' },
-    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' }
+    { name: 'GitHub', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg' },
+    { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg' },
+    { name: 'Flutter', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flutter/flutter-original.svg' }
   ];
 
   return (
@@ -43,16 +45,15 @@ export function Skills() {
         <span style={{ transform: 'rotate(6deg) translateY(10px)', display: 'inline-block' }}>S</span>
       </div>
 
-      {/* Neat Horizontal 5x2 Grid Container (Using inline CSS grid to bypass Tailwind limitations) */}
-      <div className="container mx-auto px-2 sm:px-4 relative z-10">
+      {/* Neat Flexible Grid Container */}
+      <div className="container mx-auto px-2 sm:px-4 relative z-10 w-full flex justify-center">
         <div 
           style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(5, 1fr)', 
-            gap: 'clamp(20px, 4vw, 50px)', 
+            display: 'flex', 
+            flexWrap: 'wrap', 
+            gap: 'clamp(30px, 4vw, 60px)', 
             maxWidth: '900px', 
-            margin: '0 auto',
-            justifyItems: 'center'
+            justifyContent: 'center'
           }}
         >
           {skills.map((skill, idx) => (
@@ -71,7 +72,7 @@ export function Skills() {
                 delay: idx * 0.05 
               }}
               viewport={{ once: true, margin: "-50px" }}
-              className="relative cursor-pointer group flex flex-col items-center justify-center w-full"
+              className="relative cursor-pointer group flex flex-col items-center justify-center"
               onHoverStart={() => setHoveredSkill(skill.name)}
               onHoverEnd={() => setHoveredSkill(null)}
             >

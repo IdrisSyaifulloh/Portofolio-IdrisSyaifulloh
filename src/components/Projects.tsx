@@ -2,62 +2,69 @@ import { motion, AnimatePresence } from 'motion/react';
 import { useState } from 'react';
 import { X, ExternalLink, Github } from 'lucide-react';
 import { ImageWithFallback } from './figma/ImageWithFallback';
-
+import AriseImg from '../assets/Arise.png';
+import aquaimg from '../assets/Aquaculture.png';
+import ms from '../assets/MS.png';
+import smartmanekin from '../assets/SmartManekin.png';
+import uiios from '../assets/UIIOS.png';
 export function Projects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   const projects = [
     {
-      title: 'Semester 3 Final Project',
+      title: 'Arise Games',
       category: 'Full Stack',
-      year: '2024',
+      year: '2026',
       description: 'A comprehensive management system developed as a final project. It handles data operations and features a user-friendly interface built with modern web technologies.',
-      fullDescription: 'Complete platform featuring real-time inventory management, advanced analytics dashboard, and seamless user experience. Built with PHP, MySQL, and Bootstrap.',
-      image: 'https://images.t2online.in/cdn-cgi/image/width=640,quality=70/https://apis.t2online.in/getImageStream/1058/1756644711962.jpg',
-      tags: ['PHP Native', 'MySQL', 'Bootstrap', 'CSS', 'JS'],
+      fullDescription: 'Terlibat dalam pengembangan website pengelolaan kegiatan olahraga bekerja sama dengan National Olympic Academy, mencakup fitur peserta, volunteer, lowongan pekerjaan, Landing Page, Page Per User.',
+      image: AriseImg,
+      tags: ['Laravel','React JS', 'MySQL', 'Bootstrap', 'CSS', 'JS'],
       metrics: { users: 'Fotocopy', member: '2' },
-      github: 'https://github.com/IdrisSyaifulloh/ManajemenFotocopyan-TugasBesar-Semester2',
-      demo: 'https://project-demo.com'
+      demo: 'https://arise.games/'
     },
     {
-      title: 'MY BINI 1',
+      title: 'Aquaculture Monitoring System',
       category: 'Full Stack',
-      year: '2024',
+      year: '2026',
       description: 'An advanced full-stack application demonstrating complex data flows and interactive UI elements. Developed to showcase backend integration capabilities.',
       fullDescription: 'Complete e-commerce platform featuring real-time inventory management, secure payment processing with Stripe, advanced analytics dashboard, and seamless user experience. Built with React, Node.js, and PostgreSQL.',
-      image: 'https://static.promediateknologi.id/crop/0x0:0x0/1200x600/webp/photo/p1/916/2024/11/11/go-yoon-jung-802564551.jpg',
-      tags: ['React', 'Node.js', 'PostgreSQL', 'Stripe'],
+      image: aquaimg,
+      tags: ['Laravel','MySQL', 'CSS', 'JS'],
       metrics: { users: '1JTK+', uptime: '99.9%', performance: 'A+' },
+      demo: 'https://dev-aquaculture.stas-rg.com/login'
     },
     {
-      title: 'MY BINI 2',
-      category: 'Mobile',
-      year: '2024',
+      title: 'Management STAS-RG',
+      category: 'Full Stack',
+      year: '2026',
       description: 'Feature-rich mobile application for fitness enthusiasts. Includes workout tracking, nutrition planning, and social community features.',
       fullDescription: 'Feature-rich mobile application for fitness enthusiasts. Includes workout tracking, nutrition planning, social community features, and AI-powered recommendations. Built with React Native and Firebase.',
-      image: 'https://www.pantau.com/_next/image?url=https%3A%2F%2Fpantau.sgp1.cdn.digitaloceanspaces.com%2Fimages%2F20240804-3954-446123229_1788594541633306_394263367615011274.jpg&w=2048&q=75',
+      image: ms,
       tags: ['React Native', 'Firebase', 'Redux', 'ML'],
       metrics: { downloads: '50K+', rating: '4.8/5', active: '15K' },
+      demo: 'https://ms-stas-rg.com'
     },
     {
-      title: 'UI/UX Exploration',
-      category: 'Design',
+      title: 'Smart Manekin Monitoring System',
+      category: 'Full Stack Development',
       year: '2023',
       description: 'Creative exploration of modern user interfaces.',
       fullDescription: 'A collection of UI/UX designs focusing on minimalism and user engagement.',
-      image: 'https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop',
+      image: smartmanekin,
       tags: ['Figma', 'UI/UX', 'Design System'],
       metrics: { views: '10K+', likes: '1.2K' },
+      demo: 'https://smart-manekin.stas-rg.com'
     },
     {
-      title: 'Web Analytics Dashboard',
-      category: 'Frontend',
-      year: '2023',
+      title: 'UI/UX IOS Design',
+      category: 'Frontend IOS',
+      year: '2026',
       description: 'Data visualization dashboard for marketing teams.',
-      fullDescription: 'Interactive dashboard built with React and D3.js to visualize complex datasets in real-time.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2000&auto=format&fit=crop',
+      fullDescription: 'Terlibat dalam pengembangan website pengelolaan kegiatan olahraga bekerja sama dengan National Olympic Academy, mencakup fitur peserta, volunteer, lowongan pekerjaan, Landing Page, Page Per User.',
+      image: uiios,
       tags: ['React', 'D3.js', 'Tailwind'],
       metrics: { users: '5K+', retention: '85%' },
+      demo: 'https://ff56cp.csb.app'
     }
   ];
 
@@ -138,13 +145,21 @@ export function Projects() {
                 {/* Card Style */}
                 <div 
                   className="bg-white p-2 shadow-2xl overflow-hidden border border-gray-200 relative z-10"
-                  style={{ width: 'clamp(110px, 35vw, 180px)', aspectRatio: '3/4' }}
+                  style={{ width: 'clamp(160px, 42vw, 320px)', aspectRatio: '4/3' }}
                 >
                   <ImageWithFallback 
                     src={project.image} 
                     alt={project.title} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
-                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    className="w-full h-full transition-transform duration-700 group-hover:scale-110" 
+                    style={{ 
+                      width: '100%', 
+                      height: '100%', 
+                      objectFit: 'cover', 
+                      objectPosition: 'top center',
+                      imageRendering: 'high-quality',
+                      backfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)'
+                    }}
                   />
                   
                   {/* Hover Overlay Text */}
