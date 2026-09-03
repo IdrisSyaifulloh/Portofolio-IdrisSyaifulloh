@@ -1,15 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { useTheme } from './ThemeContext';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const { isDark, toggleTheme } = useTheme();
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      const currentScrollY = window.scrollY;
+      
+      setIsScrolled(currentScrollY > 50);
+      
+      // Auto-hide logic
+      if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+        setIsVisible(false); // Hide when scrolling down
+      } else {
+        setIsVisible(true); // Show when scrolling up
+      }
+      lastScrollY.current = currentScrollY;
       
       const sections = ['home', 'about', 'skills', 'projects', 'experience', 'certification', 'contact'];
       for (const section of sections) {
@@ -23,7 +35,7 @@ export function Navigation() {
         }
       }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -39,10 +51,11 @@ export function Navigation() {
   return (
     <motion.nav
       initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      animate={{ y: isVisible ? 0 : '-100%' }}
+      transition={{ duration: 0.3, ease: 'easeInOut' }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-500 ${
         isScrolled
-          ? 'bg-white/90 dark:bg-black/90 backdrop-blur-md shadow-sm'
+          ? 'bg-white/95 dark:bg-black/95 backdrop-blur-md shadow-sm'
           : 'bg-transparent'
       }`}
     >
